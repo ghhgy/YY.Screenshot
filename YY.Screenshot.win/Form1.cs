@@ -19,7 +19,7 @@ namespace YY.Screenshot.win
         }
         Screenshot screenshot;
         private void button1_Click(object sender, EventArgs e)
-        {
+        { 
             Image image = this.screenshot.start(this, true, true);
             this.pictureBox1.Image = image;
         }
