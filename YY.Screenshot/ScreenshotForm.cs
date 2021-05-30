@@ -39,25 +39,18 @@ namespace YY.Screenshot
 
         }
 
-        private bool isup;
         private void ScreenshotForm_MouseDown(object sender, MouseEventArgs e)
         {
             leftBtisDown = true;
-            if (isup == false)
-            {
+   
                 startPoint = e.Location; //记录按下的点
 
-            }
         }
 
         private void ScreenshotForm_MouseUp(object sender, MouseEventArgs e)
         {
             //Hide();
             leftBtisDown = false;
-            if (isup == true)
-            {
-                return;
-            }
 
             endPoint = e.Location; //记录松开的点
 
@@ -125,7 +118,7 @@ namespace YY.Screenshot
                 g2.CopyFromScreen(r, upperLeftDestinationPoint, sz); //左上截图
             }
 
-            isup = true;
+     
 
             if (isCopyToClipboard) { Clipboard.SetImage(img2); }
 
@@ -136,7 +129,7 @@ namespace YY.Screenshot
         private void ScreenshotForm_MouseMove(object sender, MouseEventArgs e)
         {
 
-            if (isup == true)
+            if (leftBtisDown == false)
             {
                 return;
             }

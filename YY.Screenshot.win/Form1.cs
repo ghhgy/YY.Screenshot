@@ -15,11 +15,12 @@ namespace YY.Screenshot.win
         public Form1()
         {
             InitializeComponent();
-              
+            screenshot = new Screenshot();
         }
+        Screenshot screenshot;
         private void button1_Click(object sender, EventArgs e)
         {
-            Image image = Screenshot.start(this, true, true);
+            Image image = this.screenshot.start(this, true, true);
             this.pictureBox1.Image = image;
         }
     }

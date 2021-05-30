@@ -6,21 +6,18 @@ namespace YY.Screenshot
     {
         public Screenshot()
         {
+            screenshotForm = new ScreenshotForm();
            
         }
-          static Screenshot()
-        {
 
-            screenshotForm = new ScreenshotForm();
-        }
-        public static YY.Screenshot.ScreenshotForm screenshotForm;
+         YY.Screenshot.ScreenshotForm screenshotForm;
         /// <summary>
         /// 开始截屏
         /// </summary>
-        /// <param name="mainForm">直接填写this</param>
-        /// <param name="isHideForm">截图时是否隐藏窗体</param>
+        /// <param name="mainForm">主窗体,直接填写this</param>
+        /// <param name="isHideForm">截图时是否隐藏主窗体</param>
         /// <param name="isCopyToClipboard">是否复制到剪贴板</param>
-        public static System.Drawing.Image start(Form mainForm, bool isHideForm, bool isCopyToClipboard = true)
+        public   System.Drawing.Image start(Form mainForm, bool isHideForm, bool isCopyToClipboard = true)
         {
             if (screenshotForm == null) { screenshotForm = new ScreenshotForm(); }
       
