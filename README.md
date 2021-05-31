@@ -1,8 +1,7 @@
 # YY.Screenshot
 屏幕截图
 # 使用方法
-创建一个按钮,在按钮的单击事件下写:
+放一个pictureBox1,一个按钮,在按钮的单击事件下写:
 
-            Screenshot screenshot = new Screenshot();
-            Image image = this.screenshot.start(this, true, true);
-            this.pictureBox1.Image = image;
+            this.pictureBox1.Image = new Screenshot().start(this, true, true);
+           
