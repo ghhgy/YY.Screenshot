@@ -1,7 +1,7 @@
 ﻿
 namespace YY.Screenshot
 {
-    partial class ScreenshotForm
+    internal partial class ScreenshotForm
     {
         /// <summary>
         /// Required designer variable.

@@ -4,23 +4,26 @@ using System.Windows.Forms;
 
 namespace YY.Screenshot
 {
-    public partial class ScreenshotForm : Form
+    internal partial class ScreenshotForm : Form
     {
         private Point startPoint; // 按下的点
         private Point endPoint; // 松开的点
-        private Pen pen1 = new Pen(Color.Red, 1);
+        private Pen pen1 = new Pen(Color.Black, 1);
         public Image img2; //截图后的图片
         private bool leftBtisDown = false;  // 鼠标左键是否按下
         public bool isCopyToClipboard = false;  // 是否复制到剪贴板
         public ScreenshotForm()
         {
             InitializeComponent();
-            //双缓冲,可以防止一点闪烁
+            //双缓冲
             SetStyle(ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.AllPaintingInWmPaint | ControlStyles.OptimizedDoubleBuffer, true);
+            this.ShowInTaskbar = false;
+            this.TopMost = true;
         }
 
         private void ScreenshotForm_Load(object sender, EventArgs e)
         {
+
             // 让ScreenshotForm和屏幕一样大小
             Visible = false;
 
@@ -42,8 +45,8 @@ namespace YY.Screenshot
         private void ScreenshotForm_MouseDown(object sender, MouseEventArgs e)
         {
             leftBtisDown = true;
-   
-                startPoint = e.Location; //记录按下的点
+
+            startPoint = e.Location; //记录按下的点
 
         }
 
@@ -118,12 +121,12 @@ namespace YY.Screenshot
                 g2.CopyFromScreen(r, upperLeftDestinationPoint, sz); //左上截图
             }
 
-     
+
 
             if (isCopyToClipboard) { Clipboard.SetImage(img2); }
 
             Close();
-          
+
         }
 
         private void ScreenshotForm_MouseMove(object sender, MouseEventArgs e)
